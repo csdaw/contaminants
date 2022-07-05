@@ -1,0 +1,28 @@
+---
+title: "contaminants"
+output: github_document
+---
+
+```{r setup, echo=FALSE}
+suppressPackageStartupMessages(library(here))
+library(magrittr)
+```
+
+```{r regenerate, echo=FALSE, eval=FALSE}
+# To be run manually
+source(here("scripts", "contaminants.R"))
+```
+
+
+
+This repository contains the contaminants FASTA files I use for my peptide
+searches.
+
+## FASTA files
+
+```{r, echo=FALSE}
+knitr::kable(
+  read.delim(here("metadata", "contaminants-metadata.txt")) %>% 
+               `names<-`(gsub(".", " ", names(.), fixed = TRUE))
+)
+```
