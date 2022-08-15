@@ -11,8 +11,8 @@ library(magrittr)
 ```{r regenerate, echo=FALSE, eval=FALSE}
 # To be run manually
 source(here("scripts", "contaminants.R"))
+source(here("scripts", "contaminants_w_rnases.R"))
 ```
-
 
 
 This repository contains the contaminants FASTA files I use for my peptide
@@ -21,8 +21,16 @@ searches.
 ## FASTA files
 
 ```{r, echo=FALSE}
-knitr::kable(
-  read.delim(here("metadata", "contaminants-metadata.txt")) %>% 
-               `names<-`(gsub(".", " ", names(.), fixed = TRUE))
-)
+metadata_files <- list.files("metadata")
+
+cont_table <- lapply(here("metadata", metadata_files), function(x) {
+  read.delim(here(x)) %>% 
+    `names<-`(gsub(".", " ", names(.), fixed = TRUE))
+}) %>% 
+  do.call(rbind, .)
+```
+
+
+```{r, echo=FALSE}
+knitr::kable(cont_table)
 ```
