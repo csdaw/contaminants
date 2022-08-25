@@ -226,7 +226,7 @@ manual_seqs <- Biostrings::readAAStringSet(here("hao_lab", "contaminants_univers
   .[grep("AAAA[1-2]", names(.))]
 
 Biostrings::writeXStringSet(
-  manual_sequences,
+  manual_seqs,
   fasta_path,
   append = TRUE
 )
