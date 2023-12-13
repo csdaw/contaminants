@@ -1,2 +1,0 @@
-"File"	"Number.of.Sequences"	"UniProt.Release"	"Date"
-"2022_03_contaminants.fasta"	379	"2022_03"	2022-08-25 10:25:23
