@@ -3,34 +3,5 @@ title: "contaminants"
 output: github_document
 ---
 
-```{r setup, echo=FALSE}
-suppressPackageStartupMessages(library(here))
-library(magrittr)
-```
-
-```{r regenerate, echo=FALSE, eval=FALSE}
-# To be run manually
-source(here("scripts", "contaminants.R"))
-source(here("scripts", "contaminants_w_rnases.R"))
-```
-
-
-This repository contains the contaminants FASTA files I use for my peptide
-searches.
-
-## FASTA files
-
-```{r, echo=FALSE}
-metadata_files <- list.files("metadata")
-
-cont_table <- lapply(here("metadata", metadata_files), function(x) {
-  read.delim(here(x)) %>% 
-    `names<-`(gsub(".", " ", names(.), fixed = TRUE))
-}) %>% 
-  do.call(rbind, .)
-```
-
-
-```{r, echo=FALSE}
-knitr::kable(cont_table)
-```
+This repository contains the contaminants FASTA files I use for my MS database
+searching and the scripts used to create them.
