@@ -8,7 +8,7 @@
 
 # Then I used Phil Wilmarth's fasta_utilities/FASTA_digest_unique.py script with
 # default settings on contaminants_universal_nr.fasta. 
-# python ~/repos/fasta_utilities/FASTA_digest_unique.py
+# python scripts/FASTA_digest_unique.py
 
 
 ## Script:
