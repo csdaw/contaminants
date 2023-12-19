@@ -3,13 +3,19 @@
 ## minimal sequence redundancy
 
 ## Pre-processing:
-# I passed Hao Group Universal Contaminants fasta through cd-hit v4.8.1 with the following command:
+# I passed Hao Group Universal Contaminants fasta through cd-hit v4.8.1 with the
+# following command to remove duplicate sequences
 # ~/Downloads/cd-hit-v4.8.1-2019-0228/cd-hit -i hao_lab/contaminants_universal.fasta -o hao_lab/contaminants_universal_nr.fasta -c 1.00 -n 5 -d 0 -M 12000 -T 4
 
-# Then I used Phil Wilmarth's fasta_utilities/FASTA_digest_unique.py script with
-# default settings on contaminants_universal_nr.fasta. 
-# python scripts/FASTA_digest_unique.py
+# Subsequently I passed this through cd-hit v4.8.1 again with the following 
+# command to remove all sequences in hao_lab/contaminants_universal_nr.fasta
+# which are identical to sequences in the UniProt human
+# reference proteome (release 2023_05). Note, this will get rid of human keratins:
+# ~/Downloads/cd-hit-v4.8.1-2019-0228/cd-hit-2d -i uniprot/2023_05_UP000005640_9606.fasta.gz -i2 hao_lab/contaminants_universal_nr.fasta -o hao_lab/contaminants_universal_nr_nh.fasta -c 1.00 -n 5 -d 0 -M 12000 -T 4
 
+# Then I used Phil Wilmarth's fasta_utilities/FASTA_digest_unique.py script with
+# default settings on hao_lab/contaminants_universal_nr.fasta
+# python scripts/FASTA_digest_unique.py
 
 ## Script:
 library(here)
@@ -21,6 +27,7 @@ library(uniprotREST)
 digest_log_filepath <- here("hao_lab/FASTA_digest_unique_log.txt")
 contaminants_fasta_filepath <- here("hao_lab/contaminants_universal_nr.fasta")
 contaminants_excel_filepath <- here("hao_lab/contaminants_universal.xlsx")
+contaminants_nh_fasta_filepath <- here("hao_lab/contaminants_universal_nr_nh.fasta")
 
 # Load contaminants excel sheet
 xl <- readxl::read_xlsx(contaminants_excel_filepath, skip = 1) %>% 
@@ -30,9 +37,13 @@ xl <- readxl::read_xlsx(contaminants_excel_filepath, skip = 1) %>%
 nr_fasta <- readAAStringSet(contaminants_fasta_filepath)
 length(nr_fasta)
 
+nh_fasta <- readAAStringSet(contaminants_nh_fasta_filepath)
+length(nh_fasta)
 # Indicate proteins in nr_fasta
 xl <- xl %>% 
-  mutate(in_nr_fasta = uniprot_id %in% sub("(.*)\\|Cont_(.*)\\|(.*)", "\\2", names(nr_fasta)))
+  mutate(in_nr_fasta = uniprot_id %in% sub("(.*)\\|Cont_(.*)\\|(.*)", "\\2", names(nr_fasta)),
+         in_nh_fasta = uniprot_id %in% sub("(.*)\\|Cont_(.*)\\|(.*)", "\\2", names(nh_fasta)),
+         is_human = grepl("HUMAN", entry_name))
 
 # Get results of FASTA_digest_unique.py
 # (Tryptic peptides include those with up to 2 missed cleavages)
@@ -69,13 +80,16 @@ xl <- xl %>%
   mutate(other = source_of_contamination == "Others")
 
 # Grab UniProt accessions for contaminants of interest
-aoi <- xl %>% 
+poi <- xl %>% 
   filter(
-    in_nr_fasta,
-    tryptic_unique,
-    !other,
+    in_nr_fasta, # Non-redundant proteins, within Hao Lab contaminants
+    in_nh_fasta | is_human, # Non-redundant proteins, compared with the human proteome (except human keratins)
+    tryptic_unique, # Proteins with non-redundant tryptic peptides
+    !other, # Protein not in Hao Lab contaminants "Other" category which seems to be a holdover from GPM cRAP?
     status != "manually added" # Will add back FLAG and HA tag later
-  ) %>% 
+  )
+
+aoi <- poi %>% 
   pull(uniprot_id)
 
 # Get FASTA sequences for these proteins
@@ -86,7 +100,7 @@ aoi_sequences <- uniprotREST::uniprot_map(
   ),
   format = "fasta"
 )
-length(aoi) == length(aoi_sequences)
+length(aoi) + 1 == length(aoi_sequences)
 
 # Get UniProt metadata for these proteins
 aoi_metadata <- uniprotREST::uniprot_map(

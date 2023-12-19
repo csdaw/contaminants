@@ -193,7 +193,6 @@ O02659	MBL	Mannose-binding protein C (MBP-C) (Mannan-binding protein)	Bos taurus
 Q24K22	MST1	Hepatocyte growth factor-like protein (Macrophage stimulatory protein) (Macrophage-stimulating protein) (MSP) [Cleaved into: Hepatocyte growth factor-like protein alpha chain; Hepatocyte growth factor-like protein beta chain]	Bos taurus (Bovine)	712	UPI00006E1379	reviewed	1	Residue cell medium containing FBS
 Q2KJ39	RCN3	Reticulocalbin-3	Bos taurus (Bovine)	328	UPI0000695E33	reviewed	1	Residue cell medium containing FBS
 Q9TTK6	AOC3	Membrane primary amine oxidase (EC 1.4.3.21) (Copper amine oxidase) (Semicarbazide-sensitive amine oxidase) (SSAO) (Vascular adhesion protein 1) (VAP-1)	Bos taurus (Bovine)	763	UPI0000086F9A	reviewed	3	Residue cell medium containing FBS
-P68103	EEF1A1	Elongation factor 1-alpha 1 (EF-1-alpha-1) (EC 3.6.5.-) (Elongation factor Tu) (EF-Tu) (Eukaryotic elongation factor 1 A-1) (eEF1A-1)	Bos taurus (Bovine)	462	UPI00000012CA	reviewed	1	Residue cell medium containing FBS
 P12260	F13A1	Coagulation factor XIII A chain (Coagulation factor XIIIa) (EC 2.3.2.13) (Protein-glutamine gamma-glutamyltransferase A chain) (Transglutaminase A chain)	Bos taurus (Bovine)	198	UPI0000D79E82	reviewed	2	Residue cell medium containing FBS
 P31836	NCAM1	Neural cell adhesion molecule 1 (N-CAM-1) (NCAM-1)	Bos taurus (Bovine)	853	UPI000012FDC2	reviewed	1	Residue cell medium containing FBS
 P42916	CL43	Collectin-43 (CL-43) (43 kDa collectin)	Bos taurus (Bovine)	321	UPI0000127A7F	reviewed	2	Residue cell medium containing FBS
@@ -223,18 +222,13 @@ P13605	FMOD	Fibromodulin (FM) (Collagen-binding 59 kDa protein) (Keratan sulfate
 P18902	RBP4	Retinol-binding protein 4 (Plasma retinol-binding protein) (PRBP) (RBP)	Bos taurus (Bovine)	183	UPI00001113C3	reviewed	1	Residue cell medium containing FBS
 P33433	HRG	Histidine-rich glycoprotein (Histidine-proline-rich glycoprotein) (HPRG)	Bos taurus (Bovine)	396	UPI000012CBC2	reviewed	1	Residue cell medium containing FBS
 P55906	TGFBI	Transforming growth factor-beta-induced protein ig-h3 (Beta ig-h3) (MP70) (MP78)	Bos taurus (Bovine)	683	UPI00015C7055	reviewed	2	Residue cell medium containing FBS
-P60712	ACTB	Actin, cytoplasmic 1 (EC 3.6.4.-) (Beta-actin) [Cleaved into: Actin, cytoplasmic 1, N-terminally processed]	Bos taurus (Bovine)	375	UPI000000082D	reviewed	1	Residue cell medium containing FBS
-P63103	YWHAZ	14-3-3 protein zeta/delta (Factor activating exoenzyme S) (FAS) (Protein kinase C inhibitor protein 1) (KCIP-1)	Bos taurus (Bovine)	245	UPI000003300D	reviewed	1	Residue cell medium containing FBS
-P68138	ACTA1	Actin, alpha skeletal muscle (EC 3.6.4.-) (Alpha-actin-1) [Cleaved into: Actin, alpha skeletal muscle, intermediate form]	Bos taurus (Bovine)	377	UPI0000000860	reviewed	1	Residue cell medium containing FBS
 P80012	VWF	von Willebrand factor (vWF)	Bos taurus (Bovine)	937	UPI0000138E99	reviewed	2	Residue cell medium containing FBS
 P81187	CFB	Complement factor B (EC 3.4.21.47) (C3/C5 convertase) (EC-VMFB) [Cleaved into: Complement factor B Ba fragment; Complement factor B Bb fragment]	Bos taurus (Bovine)	761	UPI0000693DF2	reviewed	2	Residue cell medium containing FBS
-P81948	TUBA4A	Tubulin alpha-4A chain (EC 3.6.5.-) (Alpha-tubulin 1) (Tubulin alpha-1 chain)	Bos taurus (Bovine)	448	UPI0000004129	reviewed	2	Residue cell medium containing FBS
 P98140	F12	Coagulation factor XII (EC 3.4.21.38) (Hageman factor) (HAF) [Cleaved into: Coagulation factor XIIa heavy chain; Coagulation factor XIIa light chain]	Bos taurus (Bovine)	612	UPI0000DC3558	reviewed	2	Residue cell medium containing FBS
 Q28106	CNTN1	Contactin-1 (Neural cell surface protein F3)	Bos taurus (Bovine)	1018	UPI0000087317	reviewed	1	Residue cell medium containing FBS
 Q28178	THBS1	Thrombospondin-1 (Glycoprotein G)	Bos taurus (Bovine)	1170	UPI000013776A	reviewed	2	Residue cell medium containing FBS
 Q2HJ86	TUBA1D	Tubulin alpha-1D chain (EC 3.6.5.-) [Cleaved into: Detyrosinated tubulin alpha-1D chain]	Bos taurus (Bovine)	452	UPI000069AA0E	reviewed	1	Residue cell medium containing FBS
 Q2KJ63	KLKB1	Plasma kallikrein (EC 3.4.21.34) (Fletcher factor) (Kininogenin) (Plasma prekallikrein) [Cleaved into: Plasma kallikrein heavy chain; Plasma kallikrein light chain]	Bos taurus (Bovine)	636	UPI0000695E2B	reviewed	1	Residue cell medium containing FBS
-Q2KJD0	TUBB5	Tubulin beta-5 chain	Bos taurus (Bovine)	444	UPI0000001229	reviewed	1	Residue cell medium containing FBS
 Q3SWW8	THBS4	Thrombospondin-4	Bos taurus (Bovine)	961	UPI00005B63B1	reviewed	1	Residue cell medium containing FBS
 Q3ZCH5	AZGP1	Zinc-alpha-2-glycoprotein (Zn-alpha-2-GP) (Zn-alpha-2-glycoprotein)	Bos taurus (Bovine)	299	UPI00005993EB	reviewed	1	Residue cell medium containing FBS
 Q58CQ9	VNN1	Pantetheinase (EC 3.5.1.92) (Pantetheine hydrolase) (Vascular non-inflammatory molecule 1) (Vanin-1)	Bos taurus (Bovine)	510	UPI00004ED40F	reviewed	1	Residue cell medium containing FBS
