@@ -145,14 +145,19 @@ aoi_metadata3 <- aoi_metadata2 %>%
   )
 
 tags <- AAStringSet(
-  c("sp|AAAAA1|FLAG Tag OS=Synthetic OX=0000 GN=FLAG PE=1 SV=1" = "DYKDDDDK",
-    "sp|AAAAA2|HA Tag OS=Synthetic OX=0000 GN=HA PE=1 SV=1" = "YPYDVPDYA")
+  c("sp|Cont_AAAAA1|FLAG Tag OS=Synthetic OX=0000 GN=FLAG PE=1 SV=1" = "DYKDDDDK",
+    "sp|Cont_AAAAA2|HA Tag OS=Synthetic OX=0000 GN=HA PE=1 SV=1" = "YPYDVPDYA")
 )
 
 aoi_sequences2 <- c(aoi_sequences, tags)
 aoi_sequences2
 # Check lengths
 nrow(aoi_metadata3) == length(aoi_sequences2)
+
+# Add Cont_ prefix
+names(aoi_sequences2)
+names(aoi_sequences2) <- sub("^([a-z]{2}\\|)", "\\1Cont_", names(aoi_sequences2))
+names(aoi_sequences2)
 
 # Write outputs
 write.table(
